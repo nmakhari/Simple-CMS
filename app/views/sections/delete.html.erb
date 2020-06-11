@@ -1,2 +1,18 @@
-<h1>Sections#delete</h1>
-<p>Find me in app/views/sections/delete.html.erb</p>
+<%= link_to("<<Back to list", sections_path, :class => "back-link")%>
+
+<div class="Section Delete">
+    <h2>Delete Section</h2>
+
+    <%= form_for(@section, :method => 'delete') do |f| %>
+        <p>Are you sure you want to permanently delete this section?</p>
+        
+        <p class="reference-name">Subject reference: <strong><%= @section.name%></strong></p>
+
+        <div class="form-buttons">
+      <%= f.submit("Delete Section") %>
+    </div>
+
+  <% end %>
+</div>
+
+
