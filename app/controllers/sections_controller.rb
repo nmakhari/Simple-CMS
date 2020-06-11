@@ -4,7 +4,7 @@ class SectionsController < ApplicationController
   end
 
   def show
-    @section = Seciton.find(params[:id])
+    @section = Section.find(params[:id])
   end
 
   def new
@@ -28,8 +28,8 @@ class SectionsController < ApplicationController
   def update
     @section = Section.find(params[:id])
     if @section.update_attributes(section_params)
-      flash[:notice] = "Section'#{@subject.name}' updated successfully"
-      redirect_to(section_path(@subject.id))
+      flash[:notice] = "Section '#{@section.name}' updated successfully"
+      redirect_to(section_path(@section.id))
     else
       render('edit')
     end

@@ -1,2 +1,50 @@
-<h1>Sections#show</h1>
-<p>Find me in app/views/sections/show.html.erb</p>
+<%if !flash[:notice].blank?%>
+    <div class=notice>
+        <%=flash[:notice]%>
+    </div>
+<%end%>
+
+<%= link_to("<<Back to list", sections_path, :class=>'back-link')%>
+
+<div class="section show">
+    <h2>Show Page</h2>
+
+    <table summary="Section Detail View">
+        <tr>
+            <th>Section</th>
+            <td><%=@section.name%></td>
+        </tr>
+
+        <tr>
+            <th>Position</th>
+            <td><%=@section.position%></td>
+        </tr>
+
+        <tr>
+            <th>Visible</th>
+            <td><%=@section.visible ? "Yes" : "No" %></td>
+        </tr>
+        
+        <tr>
+            <th>Content Type</th>
+            <td><%=@section.content_type%></td>
+        </tr>
+
+        <tr>
+            <th>Admin Users</th>
+            <td><%= @section.admin_users.size%></td>
+        </tr>
+        
+        <tr>
+            <th>Created At</th>
+            <td><%=@section.created_at%></td>
+        </tr>
+
+        <tr>
+            <th>Updated At</th>
+            <td><%=@section.updated_at%></td>
+        </tr>
+
+    </table>
+</div>
+
