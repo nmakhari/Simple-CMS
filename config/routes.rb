@@ -1,14 +1,4 @@
 Rails.application.routes.draw do
-  get 'pages/index'
-
-  get 'pages/show'
-
-  get 'pages/edit'
-
-  get 'pages/delete'
-
-  get 'pages/new'
-
   root "demo#index"
 
   #all 8 CRUD actions 
@@ -19,6 +9,12 @@ Rails.application.routes.draw do
   end
 
   resources :pages do 
+    member do 
+      get :delete
+    end
+  end
+
+  resources :sections do 
     member do 
       get :delete
     end

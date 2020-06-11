@@ -1,0 +1,37 @@
+<%if !flash[:notice].blank?%>
+    <div class="notice">
+        <%=flash[:notice]%>
+    </div>
+<%end%>
+
+<div class="sections index">
+    <h2>Pages</h2>
+
+    <%=link_to("Create Section", new_page_path, :class => "action new")%>
+
+        <table class="listing" summary="Section List">
+            <tr class="header">
+                <th>#</th>
+                <th>Section</th>
+                <th>Position</th>
+                <th>Visible</th>
+                <th>Number of Admins</th>
+                <th>Actions</th>
+            </tr>
+            <%@sections.each{ |section|%>
+                <tr>
+                <td><%=section.id%></td>
+                <td><%=section.name%></td>
+                <td><%=section.position%></td>
+                <td><%=section.visible ? "Yes" : "No"%></td>
+                <td><%=section.admin_users.size%></td>
+                <td class="actions">
+                    <%=link_to("Show", section_path(section), :class=>"action new") %>
+                    <%=link_to("Edit", edit_section_path(section), :class=>"action edit") %>
+                    <%=link_to("Delete", delete_section_path(section), :class=>"action delete") %>
+                </td>
+            </tr>
+        <%}%>
+    </table>
+</div>
+
