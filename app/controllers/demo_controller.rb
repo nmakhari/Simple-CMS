@@ -1,6 +1,6 @@
 class DemoController < ApplicationController
 
-  layout false
+  layout "admin"
 
   def index
     render(:template => 'demo/index')

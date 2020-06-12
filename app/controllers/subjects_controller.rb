@@ -1,8 +1,12 @@
 class SubjectsController < ApplicationController
+
+  layout "admin"
+
   #reading
   def index
     #uses the named scope defined in the model to sort by position
     @subjects = Subject.sorted
+    @page_title = "All Subjects"
   end
 
   def show

@@ -1,6 +1,10 @@
 class SectionsController < ApplicationController
+
+  layout "admin"
+
   def index
     @sections = Section.all
+    @page_title = "All Sections"
   end
 
   def show
