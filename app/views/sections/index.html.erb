@@ -7,15 +7,13 @@
             <tr class="header">
                 <th>#</th>
                 <th>Section</th>
-                <th>Position</th>
                 <th>Visible</th>
                 <th>Actions</th>
             </tr>
             <%@sections.each{ |section|%>
                 <tr>
-                <td><%=section.id%></td>
-                <td><%=section.name%></td>
                 <td><%=section.position%></td>
+                <td><%=section.name%></td>
                 <td class="center"><%=status_tag(section.visible)%></td>
                 <td class="actions">
                     <%=link_to("Show", section_path(section), :class=>"action new") %>
