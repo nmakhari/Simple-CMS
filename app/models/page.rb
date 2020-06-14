@@ -9,4 +9,9 @@ class Page < ApplicationRecord
     scope :newest_first, -> {order(:created_at => :desc)}
 
     validates_presence_of :name
+    validates_length_of :name, :maximum => 255
+    validates_presence_of :permalink
+    validates_length_of :permalink, :in =>3..255
+
+    validates_uniquness_of :permalink
 end
