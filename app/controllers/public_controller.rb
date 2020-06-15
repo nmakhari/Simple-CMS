@@ -2,6 +2,8 @@ class PublicController < ApplicationController
 
   layout "public"
 
+  before_action :setup_navigation
+
   def index
     #show a layout
   end
@@ -14,4 +16,10 @@ class PublicController < ApplicationController
       #will redirect to the show view
     end
   end
+
+  private 
+  def setup_navigation
+    @subjects = Subject.visible.sorted
+  end
+
 end
