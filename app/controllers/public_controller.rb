@@ -1,5 +1,7 @@
 class PublicController < ApplicationController
 
+  layout "public"
+
   def index
     #show a layout
   end
