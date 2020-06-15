@@ -13,5 +13,5 @@ class Page < ApplicationRecord
     validates_presence_of :permalink
     validates_length_of :permalink, :in =>3..255
 
-    validates_uniquness_of :permalink
+    validates_uniqueness_of :permalink
 end

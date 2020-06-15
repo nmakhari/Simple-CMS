@@ -2,6 +2,8 @@ class SubjectsController < ApplicationController
 
   layout "admin"
 
+  before_action :set_subject_count, :only => [:new, :create, :edit, :update]
+
   #reading
   def index
     #uses the named scope defined in the model to sort by position
@@ -16,7 +18,6 @@ class SubjectsController < ApplicationController
   #creating
   def new
     @subject = Subject.new
-    @subject_positions = Subject.count + 1
   end
 
   def create
@@ -26,7 +27,6 @@ class SubjectsController < ApplicationController
       flash[:notice] = "Subject '#{@subject.name}' created successfully"
       redirect_to(subjects_path)
     else
-      @subject_positions = Subject.count + 1
       render('new')
     end
   end
@@ -34,18 +34,16 @@ class SubjectsController < ApplicationController
   #updating
   def edit
     @subject = Subject.find(params[:id])
-    @subject_positions = Subject.count 
   end
   
   def update
    @subject = Subject.find(params[:id])
-
+  
    if @subject.update_attributes(subject_params)
     #redirect to the 'show' view after a successful update
     flash[:notice] = "Subject '#{@subject.name}' updated successfully"
       redirect_to(subject_path(@subject))
    else 
-    @subject_positions = Subject.count
       render('edit')
    end
   end
@@ -66,4 +64,12 @@ class SubjectsController < ApplicationController
   def subject_params
     params.require(:subject).permit(:name, :position, :visible)
   end
+
+  def set_subject_count
+    @subject_positions = Subject.count 
+    if params[:action] == "new" || params[:action] == "create"
+      @subject_positions+=1
+    end
+  end
+  
 end
