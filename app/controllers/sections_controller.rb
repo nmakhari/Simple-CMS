@@ -66,7 +66,7 @@ class SectionsController < ApplicationController
   end
 
   def set_section_count
-    @section_positions = Section.count
+    @section_positions = @page.sections.count
     if params[:action] == "new" || params[:action] == "create"
       @section_positions+=1
     end

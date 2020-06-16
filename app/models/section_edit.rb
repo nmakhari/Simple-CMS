@@ -1,4 +1,5 @@
 class SectionEdit < ApplicationRecord
+    acts_as_list :scope => :page
     belongs_to :admin_user
     belongs_to :section
 

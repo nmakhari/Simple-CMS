@@ -1,5 +1,5 @@
 class Subject < ApplicationRecord
-
+    acts_as_list
     has_many :pages
 
     #named scopes to shorten query methods
