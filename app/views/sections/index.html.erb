@@ -4,7 +4,7 @@
 <div class="sections index">
     <h2>Sections</h2>
     <%= image_tag("plus_sign.png", size: "11x11", alt: "+")%>
-    <%=link_to("Create Section", new_section_path, :class => "action new")%>
+    <%=link_to("Create Section", new_section_path(:page_id => @page.id), :class => "action new")%>
 
         <table class="listing" summary="Section List">
             <tr class="header">
