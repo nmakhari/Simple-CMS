@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   get 'show/:permalink', :to => "public#show", :as => "public_show"
 
+  #some convenience match routes
   get 'admin', :to => 'access#menu'
+  get 'login', :to => 'access#login'
   get 'access/menu'
   get 'access/login'
   post 'access/attempt_login'

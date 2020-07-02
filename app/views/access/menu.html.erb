@@ -6,6 +6,7 @@
     <ul>
         <li><%= link_to("Manage Content", subjects_path)%></li>
         <li><%= link_to("Manage Admin Users", admin_users_path)%></li>
+        <li><%= link_to("Go to Public Side", :controller => "public", :action => "index")%></li>
         <li><%= link_to("Logout", access_logout_path)%></li>
     </ul>
 </div>
