@@ -1,24 +1,4 @@
 # README
+This Simple Content Management System built using ruby 2.3.3p222 with Rails 5.1.7 and Mysql 8.0.20
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+See images in the Simple Cms Screenshots folder for a description of the site & see what I made!
