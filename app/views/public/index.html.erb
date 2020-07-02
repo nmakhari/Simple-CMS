@@ -1,2 +1,39 @@
-<h1>welcome to the public side</h1>
-<p>Find me in app/views/public/index.html.erb</p>
+<h1>Hello Public User!</h1>
+<p><strong>created by Nick Makharinets.</strong></p>
+
+<p>
+    This site was created using Ruby on Rails 5, supported with a Mysql 8 database. This site uses a multitude of rails 'sensible defualts' like resourceful routes to implement REST
+    interactions, migrations to manipulate table states and many others. <br><br>Using an MVC (Model View Controller) architecture as per rails standard, I configured everything from
+    database relations, model scopes, controller helper funcitons to views and layouts.
+</p>
+
+<p>
+    All views and layouts were created using html with embedded Ruby. The styling for the site, done in Sass, was created by Kevin Skoglund and lightly modified by myself.
+    <br><br> In terms of functionality, this <strong>Simple Content Management System</strong> has a public side (accessible to all users) supported by its own controller, views and
+    routing. The root route of the site, the page you're reading is the index action of said controller, and is complemented by a show action, which displays all Sections ordered by 
+    position on a selected page.
+</p>
+
+<p>
+    In terms of content structure, I implemented a <strong>Subject -> Pages -> Sections</strong> system. That is to say, there are multiple Subjects which can have many Pages, and each 
+    page can have multiple Sections. It may be evident that this sort of structure fits perfectly with the concept of relational databases, and that would be correct. Using Ruby on 
+    Rails model shortcuts to define table relationships, I defined a 1:M association between Subjects and Pages, that is to say one Subject has many Pages, but each Subject belongs to 
+    only one Subject. A similar relationship was defined between Pages and Sections.<br>
+    A more complicated relationship structure was implemented to create interactions between admin users and content on the site. To model the M:N association between Sections and 
+    Admin Users, I used a Rich joined table, to include extra information such as a summary of changes along with the foreign keys for the association, again, making use of Rails 
+    shortcuts to make traversing the rich join easier. To model ownership of Pages and Subjects simple M:N associations (regular joined tables) were used.  
+</p>
+
+<p>
+    To ensure <strong>safe</strong> user - database interactions, I leveraged build in Rails sanitization, and data validation built into each model. Of course, in the case of any 
+    errors, I made use of the flash hash to display messages regarding the success or failiure of user dictated operations. All table interactions are done using Rails <strong>from
+    helpers</strong> to make it as easy and intuitive as possible for users to interact with the site and its database. Subject, Page and Section fully implement CRUD interactions, 
+    again, leveraging Rails forms and form helpers to present blank forms on create and pre-populated forms on update. All of these CRUD interactions are complemented with Rails 
+    resourceful routing, implementing REST architecture.
+</p>
+
+<p>
+    In terms of final touches, I implemented Rails assisted authentication for Admin Users. Using sessions to store authenticated user IDs server side, and migrating the Admin User
+    table to a state where the :has_secure_password helper can be used, I complemented my existing controller methods with Controller Filters, mostly before actions, to ensure the 
+    current user is authenticated before exposing the private side of the site, and to set-up/clean-up before and after controller actions.
+</p>
