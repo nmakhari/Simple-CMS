@@ -4,10 +4,15 @@
     <title>Simple CMS: <%= " | #{@page_title}" if @page_title %></title>
     <%= stylesheet_link_tag('application', :media => 'all') %>
   </head>
+
   <body>
 
     <div id="header">
       <h1>Simple CMS</h1>
+    </div>
+
+    <div id="login-link" class="login">
+      <%= link_to("Login as Admin", :controller => "access", :action => "login", :class => "login")%>
     </div>
 
     <div id="main">
